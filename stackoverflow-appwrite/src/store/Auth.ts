@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { persist } from "zustand/middleware";
 
-import {AppwriteException, ID, Models} from "appwrite"
+import {AppwriteException, ID, Models} from "appwrite-client"
 import { account } from "@/models/client/config";
 
 
@@ -63,7 +63,7 @@ export const useAuthStore = create<IAuthStore>()(
 
       async login(email: string, password: string) {
         try {
-          const session = await account.createEmailSession(email, password)
+          const session = await account.createEmailPasswordSession(email, password)
           const [user, {jwt}] = await Promise.all([
             account.get<UserPrefs>(),
             account.createJWT()

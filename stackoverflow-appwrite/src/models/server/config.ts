@@ -1,7 +1,6 @@
 import env from "@/app/env";
 
-import {Avatars, Client, Databases, Storage, Users} from "node-appwrite"
-
+import {Avatars, Client, Databases, Storage, Users} from "appwrite-server"
 const client = new Client();
 
 client
